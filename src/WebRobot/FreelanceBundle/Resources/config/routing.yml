@@ -1,0 +1,3 @@
+web_robot_freelance_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: WebRobotFreelanceBundle:Default:index }

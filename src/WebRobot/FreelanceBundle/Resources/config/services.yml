@@ -1,0 +1,4 @@
+services:
+#    web_robot_freelance.example:
+#        class: WebRobot\FreelanceBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
