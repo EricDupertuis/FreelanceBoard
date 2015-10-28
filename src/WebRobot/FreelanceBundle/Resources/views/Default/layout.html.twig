@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% block head %}
-        <meta charset="UTF-8">
-        <title>{% block title %}{% endblock %}</title>
-    {% endblock %}
+    {{ include('WebRobotFreelanceBundle:Default:head.html.twig') }}
 </head>
 <body>
-    {% block body %}
-        {% block mainContent %}
+    {{ include('WebRobotFreelanceBundle:Default:nav.html.twig') }}
+    <div class="container">
+    {% block mainContent %}
 
-        {% endblock %}
+    {% endblock %}
+    </div>
+
+    {% block footer %}
+        {% javascripts
+        "@WebRobotFreelanceBundle/Resources/public/vendor/jquery/dist/jquery.min.js"
+        "@WebRobotFreelanceBundle/Resources/public/vendor/bootstrap/dist/js/bootstrap.min.js"
+        %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
     {% endblock %}
 </body>
 </html>
