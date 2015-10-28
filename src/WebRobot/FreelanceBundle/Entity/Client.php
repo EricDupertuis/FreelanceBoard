@@ -47,4 +47,9 @@ class Client
      * @ORM\OneToMany(targetEntity="Invoice", mappedBy="client")
      */
     protected $invoices;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Project", mappedBy="client")
+     */
+    protected $projects;
 }
