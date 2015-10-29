@@ -1,0 +1,6 @@
+{
+  "name": "freelanceboard",
+  "dependencies": {
+    "gulp-sass": "^2.1.0"
+  }
+}
