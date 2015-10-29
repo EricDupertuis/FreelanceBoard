@@ -2,6 +2,8 @@
 
 namespace WebRobot\FreelanceBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Class Session
  *
@@ -14,9 +16,30 @@ namespace WebRobot\FreelanceBundle\Entity;
  */
 class Session
 {
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
     protected $id;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
     protected $time;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $date;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
     protected $paid;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Project", inversedBy="sessions")
+     */
+    protected $project;
 }

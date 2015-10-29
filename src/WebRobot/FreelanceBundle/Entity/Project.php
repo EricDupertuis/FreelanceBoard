@@ -39,7 +39,7 @@ class Project
     protected $client;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\OneToMany(targetEntity="Session", mappedBy="project")
      */
-    protected $hours;
+    protected $sessions;
 }
