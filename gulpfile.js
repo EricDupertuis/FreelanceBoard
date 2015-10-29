@@ -8,7 +8,7 @@ var minifyCss = require('gulp-minify-css');
 var plumber = require('gulp-plumber');
 
 gulp.task('sass', function () {
-    gulp.src('./src/WebRobot/FreelanceBundle/Resources/Assets/sass/**/*.scss')
+    gulp.src('./src/WebRobot/FreelanceBundle/Resources/assets/sass/**/*.scss')
         .pipe(plumber())
         .pipe(filesize())
         .pipe(sass().on('error', sass.logError))
@@ -22,5 +22,5 @@ gulp.task('sass', function () {
 });
 
 gulp.task('sass:watch', function () {
-    gulp.watch('./src/WebRobot/FreelanceBundle/Resources/Assets/sass/**/*.scss', ['sass']);
+    gulp.watch('./src/WebRobot/FreelanceBundle/Resources/assets/sass/**/*.scss', ['sass']);
 });
