@@ -1,3 +1,15 @@
-web_robot_freelance_homepage:
+homepage:
     path:     /
     defaults: { _controller: WebRobotFreelanceBundle:Default:index }
+
+clients:
+    path: /clients
+    defaults: { _controller: WebRobotFreelanceBundle:Client:index }
+
+clients_new:
+    path: /clients/new
+    defaults: { _controller: WebRobotFreelanceBundle:Client:new }
+
+clients_create:
+    path: /clients
+    defaults: { _controller: WebRobotFreelanceBundle:Client:create }
