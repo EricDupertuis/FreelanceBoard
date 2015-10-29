@@ -42,4 +42,9 @@ class Project
      * @ORM\OneToMany(targetEntity="Session", mappedBy="project")
      */
     protected $sessions;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $closed;
 }
