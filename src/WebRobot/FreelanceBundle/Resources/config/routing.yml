@@ -3,13 +3,6 @@ homepage:
     defaults: { _controller: WebRobotFreelanceBundle:Default:index }
 
 clients:
-    path: /clients
-    defaults: { _controller: WebRobotFreelanceBundle:Client:index }
-
-clients_new:
-    path: /clients/new
-    defaults: { _controller: WebRobotFreelanceBundle:Client:new }
-
-clients_create:
-    path: /clients
-    defaults: { _controller: WebRobotFreelanceBundle:Client:create }
+    resource: "@WebRobotFreelanceBundle/Controller/"
+    type:     annotation
+    prefix:   /
