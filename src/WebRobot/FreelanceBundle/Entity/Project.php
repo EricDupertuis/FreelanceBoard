@@ -37,4 +37,9 @@ class Project
      * @ORM\ManyToOne(targetEntity="Client", inversedBy="projects")
      */
     protected $client;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $hours;
 }
