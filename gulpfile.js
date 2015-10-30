@@ -38,4 +38,4 @@ gulp.task('sass:watch', function () {
     gulp.watch('./src/WebRobot/FreelanceBundle/Resources/assets/sass/**/*.scss', ['sass']);
 });
 
-gulp.task('default', ['sass']);
+gulp.task('default', ['sass', 'js']);
