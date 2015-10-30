@@ -13,7 +13,7 @@ use WebRobot\FreelanceBundle\Form\ProjectType;
 /**
  * Project controller.
  *
- * @Route("/project")
+ * @Route("/projects")
  */
 class ProjectController extends Controller
 {
