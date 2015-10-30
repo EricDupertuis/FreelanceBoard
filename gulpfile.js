@@ -6,6 +6,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var filesize = require('gulp-filesize');
 var minifyCss = require('gulp-minify-css');
 var plumber = require('gulp-plumber');
+var jslint = require('gulp-jslint');
 
 gulp.task('sass', function () {
     gulp.src('./src/WebRobot/FreelanceBundle/Resources/assets/sass/**/*.scss')
@@ -19,6 +20,18 @@ gulp.task('sass', function () {
         .pipe(minifyCss({compatibility: 'ie8'}))
         .pipe(gulp.dest('./src/WebRobot/FreelanceBundle/Resources/public/css'))
         .pipe(filesize());
+});
+
+gulp.task('js', function () {
+    gulp.src('./src/WebRobot/FreelanceBundle/Resources/assets/js/**/*.js')
+        .pipe(plumber())
+        .pipe(filesize())
+        .pipe(jslint({
+            node: true,
+            reporter: 'default'
+        }))
+        .pipe(gulp.dest('./src/WebRobot/FreelanceBundle/Resources/public/js'))
+
 });
 
 gulp.task('sass:watch', function () {
