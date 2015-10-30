@@ -1,13 +1,23 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<html lang="en">
+<head>
+    {{ include('WebRobotFreelanceBundle:Default:head.html.twig') }}
+</head>
+<body>
+{{ include('WebRobotFreelanceBundle:Default:nav.html.twig') }}
+<div class="container">
+    {% block mainContent %}
+
+    {% endblock %}
+</div>
+
+{% block footer %}
+    {% javascripts
+    "@WebRobotFreelanceBundle/Resources/public/vendor/jquery/dist/jquery.min.js"
+    "@WebRobotFreelanceBundle/Resources/public/vendor/bootstrap/dist/js/bootstrap.min.js"
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+</body>
 </html>

@@ -6,3 +6,8 @@ clients:
     resource: "@WebRobotFreelanceBundle/Controller/"
     type:     annotation
     prefix:   /
+
+projects:
+    resource: "@WebRobotFreelanceBundle/Controller/"
+    type:     annotation
+    prefix:   /
