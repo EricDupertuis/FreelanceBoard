@@ -245,4 +245,9 @@ class Client
     {
         return $this->projects;
     }
+
+    public function __toString()
+    {
+        return strval($this->name);
+    }
 }

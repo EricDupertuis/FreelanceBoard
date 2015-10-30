@@ -18,7 +18,7 @@ class ProjectType extends AbstractType
             ->add('name')
             ->add('description')
             ->add('closed')
-            ->add('client')
+            ->add('client', 'entity', ['class' => 'WebRobot\FreelanceBundle\Entity\Client'])
         ;
     }
     
