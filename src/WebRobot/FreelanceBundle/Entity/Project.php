@@ -194,4 +194,9 @@ class Project
     {
         return $this->sessions;
     }
+
+    public function __toString()
+    {
+        return strval($this->name);
+    }
 }

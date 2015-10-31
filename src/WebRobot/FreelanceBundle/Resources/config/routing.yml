@@ -11,3 +11,8 @@ projects:
     resource: "@WebRobotFreelanceBundle/Controller/"
     type:     annotation
     prefix:   /
+
+sessions:
+    resource: "@WebRobotFreelanceBundle/Controller/"
+    type:     annotation
+    prefix:   /
