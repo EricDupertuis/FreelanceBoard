@@ -15,10 +15,14 @@
     {% javascripts
     "@WebRobotFreelanceBundle/Resources/public/vendor/jquery/dist/jquery.min.js"
     "@WebRobotFreelanceBundle/Resources/public/vendor/bootstrap/dist/js/bootstrap.min.js"
-    "@WebRobotFreelanceBundle/Resources/public/vendor/datatables/media/js/dataTables.bootstrap.min.js"
+    "@WebRobotFreelanceBundle/Resources/public/vendor/datatables/media/js/jquery.dataTables.min.js"
     %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
+
+    <script type="text/javascript">
+        $('table').dataTable();
+    </script>
 {% endblock %}
 </body>
 </html>

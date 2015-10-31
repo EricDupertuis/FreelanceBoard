@@ -25,14 +25,14 @@
                 <td>{{ entity.language }}</td>
                 <td>{{ entity.notes }}</td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('contacts_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('contacts_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+                <div>
+                    <a href="{{ path('contacts_show', { 'id': entity.id }) }}">
+                        <button type="button" class="btn btn-primary">show</button>
+                    </a>
+                    <a href="{{ path('contacts_edit', { 'id': entity.id }) }}">
+                        <button type="button" class="btn btn-success">edit</button>
+                    </a>
+                </div>
                 </td>
             </tr>
         {% endfor %}

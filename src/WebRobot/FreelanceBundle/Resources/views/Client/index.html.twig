@@ -21,14 +21,14 @@
                 <td>{{ entity.phone }}</td>
                 <td>{{ entity.email }}</td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('clients_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('clients_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+                <div>
+                    <a href="{{ path('clients_show', { 'id': entity.id }) }}">
+                        <button type="button" class="btn btn-primary">show</button>
+                    </a>
+                    <a href="{{ path('clients_edit', { 'id': entity.id }) }}">
+                        <button type="button" class="btn btn-success">edit</button>
+                    </a>
+                </div>
                 </td>
             </tr>
         {% endfor %}
