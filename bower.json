@@ -18,6 +18,7 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "~3.3.5"
+    "bootstrap": "~3.3.5",
+    "datatables": "~1.10.9"
   }
 }
