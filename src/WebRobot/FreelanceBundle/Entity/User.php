@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: eric
- * Date: 10/29/15
- * Time: 8:35 PM
- */
 
 namespace WebRobot\FreelanceBundle\Entity;
 
@@ -32,7 +26,7 @@ class User extends BaseUser
 
     protected $country;
 
-    protected $standardPrice;
+    protected $standardPricing;
 
     public function __construct()
     {
