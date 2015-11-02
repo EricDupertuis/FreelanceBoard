@@ -34,8 +34,6 @@ gulp.task('js', function () {
 
 });
 
-gulp.task('sass:watch', function () {
-    gulp.watch('./src/WebRobot/FreelanceBundle/Resources/assets/sass/**/*.scss', ['sass']);
+gulp.task('default',function() {
+    gulp.watch('./src/WebRobot/FreelanceBundle/Resources/assets/sass/*.scss',['sass', 'js']);
 });
-
-gulp.task('default', ['sass', 'js']);
