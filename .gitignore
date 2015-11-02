@@ -21,3 +21,6 @@ npm-debug.log
 /src/WebRobot/FreelanceBundle/Resources/public/images
 
 *~
+
+/web/css/*
+/web/js/*
