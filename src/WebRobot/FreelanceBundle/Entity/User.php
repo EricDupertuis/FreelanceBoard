@@ -24,6 +24,16 @@ class User extends BaseUser
      */
     protected $id;
 
+    protected $firstName;
+
+    protected $lastName;
+
+    protected $address;
+
+    protected $country;
+
+    protected $standardPrice;
+
     public function __construct()
     {
         parent::__construct();
