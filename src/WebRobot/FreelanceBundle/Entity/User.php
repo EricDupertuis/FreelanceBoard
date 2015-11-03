@@ -18,15 +18,30 @@ class User extends BaseUser
      */
     protected $id;
 
+    /*
+     * @ORM\Column(type="string")
+     */
     protected $firstName;
 
+    /*
+     * @ORM\Column(type="string")
+     */
     protected $lastName;
 
+    /*
+     * @ORM\Column(type="text")
+     */
     protected $address;
+
 
     protected $country;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
     protected $standardPricing;
+
+    protected $defaultCurrency;
 
     public function __construct()
     {
