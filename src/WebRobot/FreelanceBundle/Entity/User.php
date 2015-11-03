@@ -33,15 +33,11 @@ class User extends BaseUser
      */
     protected $address;
 
+    //protected $country;
 
-    protected $country;
+    //protected $standardPricing;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    protected $standardPricing;
-
-    protected $defaultCurrency;
+    //protected $defaultCurrency;
 
     public function __construct()
     {
