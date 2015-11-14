@@ -13,6 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Entity
  * @ORM\Table(name="sessions")
+ * @ORM\Entity(repositoryClass="WebRobot\FreelanceBundle\Repository\SessionRepository")
  */
 class Session
 {
