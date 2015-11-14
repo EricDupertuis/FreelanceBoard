@@ -13,6 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Entity
  * @ORM\Table(name="clients")
+ * @ORM\Entity(repositoryClass="WebRobot\FreelanceBundle\Repository\ClientRepository")
  */
 class Client
 {

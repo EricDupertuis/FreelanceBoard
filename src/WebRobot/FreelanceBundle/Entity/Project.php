@@ -11,8 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @author Eric Dupertuis <dupertuis.eric@gmail.com>
  *
- * @ORM\Entity
  * @ORM\Table(name="projects")
+ * @ORM\Entity(repositoryClass="WebRobot\FreelanceBundle\Repository\ProjectRepository")
  */
 class Project
 {
