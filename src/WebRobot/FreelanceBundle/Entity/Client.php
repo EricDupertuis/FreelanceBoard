@@ -30,16 +30,6 @@ class Client
     protected $name;
 
     /**
-     * @ORM\Column(type="string")
-     */
-    protected $phone;
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    protected $email;
-
-    /**
      * @ORM\OneToMany(targetEntity="Contact", mappedBy="client")
      */
     protected $contacts;

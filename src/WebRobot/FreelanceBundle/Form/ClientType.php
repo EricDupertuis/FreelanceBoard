@@ -16,8 +16,6 @@ class ClientType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('phone')
-            ->add('email')
             ->add('Contacts', 'entity', [
                 'class' => 'WebRobotFreelanceBundle:Contact',
                 'property' => 'fullName',

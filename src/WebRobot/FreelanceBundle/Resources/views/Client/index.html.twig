@@ -8,8 +8,6 @@
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>Phone</th>
-                <th>Email</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -18,8 +16,6 @@
             <tr>
                 <td><a href="{{ path('clients_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.name }}</td>
-                <td>{{ entity.phone }}</td>
-                <td>{{ entity.email }}</td>
                 <td>
                 <div>
                     <a href="{{ path('clients_show', { 'id': entity.id }) }}">
