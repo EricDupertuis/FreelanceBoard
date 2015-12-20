@@ -1,3 +1,10 @@
 homepage:
     path:     /
     defaults: { _controller: WebRobotFreelanceBundle:Default:index }
+
+
+projects_all:
+    pattern:  /projects/all
+    defaults: { _controller: WebRobotFreelanceBundle:Projects:getAll, _format: json }
+    requirements:
+        _method: GET
