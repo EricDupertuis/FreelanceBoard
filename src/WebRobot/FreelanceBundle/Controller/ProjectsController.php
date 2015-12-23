@@ -22,6 +22,5 @@ class ProjectsController extends FOSRestController
         return $this->container->get('doctrine.orm.entity_manager')
             ->getRepository('WebRobotFreelanceBundle:Project')
             ->find($id);
-
     }
 }
