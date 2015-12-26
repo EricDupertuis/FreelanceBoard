@@ -5,5 +5,12 @@ web_robot_api:
 web_robot_freelance:
     resource: "@WebRobotFreelanceBundle/Resources/config/routing.yml"
     prefix:   /
+
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+#REST
+rest :
+    type : rest
+    resource: "@WebRobotApiBundle/Resources/config/routing.yml"
+    prefix : /api

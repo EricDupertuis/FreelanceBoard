@@ -1,3 +1,4 @@
-web_robot_api_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: WebRobotApiBundle:Default:index }
+projects:
+    type: rest
+    resource:     "@WebRobotApiBundle/Controller/ProjectController.php"
+    prefix: /project
