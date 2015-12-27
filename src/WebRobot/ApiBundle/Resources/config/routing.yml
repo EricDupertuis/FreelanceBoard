@@ -1,4 +1,9 @@
 projects:
-    type: rest
-    resource:     "@WebRobotApiBundle/Controller/ProjectController.php"
-    prefix: /project
+    type:       rest
+    resource:   "@WebRobotApiBundle/Controller/ProjectController.php"
+    prefix:     /project
+
+clients:
+    type:       rest
+    resource:   "@WebRobotApiBundle/Controller/ClientController.php"
+    prefix:     /clients

@@ -11,7 +11,7 @@ class ProjectController extends Controller
     public function getAllAction(){
         $project = $this->getDoctrine()->getRepository('WebRobotFreelanceBundle:Project')->findAll();
         if(!is_object($project)){
-            throw $this->createNotFoundException();
+            return false;
         }
         return $project;
     }
