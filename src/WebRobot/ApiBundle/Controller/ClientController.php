@@ -9,14 +9,32 @@ use WebRobot\FreelanceBundle\Entity\Client;
 
 class ClientController extends Controller
 {
-    public function getClientsAction(Request $request)
+    public function getClientsAction()
     {
+        $em = $this->getDoctrine()->getManager();
 
+        $clients = $em->getRepository('WebRobotFreelanceBundle:Client')
+            ->findBy(['user' => $this->getUser()]);
+
+        if (!$clients) {
+            return $this->createNotFoundException('No clients found :(');
+        }
+
+        return $clients;
     }
 
     public function getClientAction($id)
     {
+        $em = $this->getDoctrine()->getManager();
 
+        $client = $em->getRepository('WebRobotFreelanceBundle:Client')
+            ->findOneBy(['id' => $id, 'user' => $this->getUser()]);
+
+        if (!$client) {
+            throw $this->createNotFoundException('Client doesn\'t exists or doesn\'t belong to this user');
+        }
+
+        return $client;
     }
 
     /**
@@ -47,5 +65,26 @@ class ClientController extends Controller
         $response = new Response('The client already exists', Response::HTTP_ACCEPTED);
 
         return $response;
+    }
+
+    public function postClientAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $client = $em->getRepository('WebRobotFreelanceBundle:Client')
+            ->findOneBy([
+                'id' => $request->get('id'),
+                'user' => $this->getUser()
+            ]);
+
+        if (!$client) {
+            throw $this->createNotFoundException('No client found, weird....');
+        }
+
+        $client->setName($request->get('name'));
+        $em->persist($client);
+        $em->flush();
+
+        return $client;
     }
 }
