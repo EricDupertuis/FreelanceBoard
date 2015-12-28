@@ -74,7 +74,7 @@ class Invoice
      *
      * @return Invoice
      */
-    public function setClient(\WebRobot\FreelanceBundle\Entity\Client $client = null)
+    public function setClient(Client $client = null)
     {
         $this->client = $client;
 

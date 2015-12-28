@@ -141,7 +141,7 @@ class Session
      *
      * @return Session
      */
-    public function setProject(\WebRobot\FreelanceBundle\Entity\Project $project = null)
+    public function setProject(Project $project = null)
     {
         $this->project = $project;
 

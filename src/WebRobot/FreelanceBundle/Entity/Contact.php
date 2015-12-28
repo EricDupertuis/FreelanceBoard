@@ -191,7 +191,7 @@ class Contact
      *
      * @return Contact
      */
-    public function setClient(\WebRobot\FreelanceBundle\Entity\Client $client = null)
+    public function setClient(Client $client = null)
     {
         $this->client = $client;
 

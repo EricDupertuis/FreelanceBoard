@@ -2,6 +2,7 @@
 
 namespace WebRobot\FreelanceBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -54,9 +55,9 @@ class Client
      */
     public function __construct()
     {
-        $this->contacts = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->invoices = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->projects = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->contacts = new ArrayCollection();
+        $this->invoices = new ArrayCollection();
+        $this->projects = new ArrayCollection();
     }
 
     /**
@@ -94,61 +95,13 @@ class Client
     }
 
     /**
-     * Set phone
-     *
-     * @param string $phone
-     *
-     * @return Client
-     */
-    public function setPhone($phone)
-    {
-        $this->phone = $phone;
-
-        return $this;
-    }
-
-    /**
-     * Get phone
-     *
-     * @return string
-     */
-    public function getPhone()
-    {
-        return $this->phone;
-    }
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     *
-     * @return Client
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
      * Add contact
      *
      * @param \WebRobot\FreelanceBundle\Entity\Contact $contact
      *
      * @return Client
      */
-    public function addContact(\WebRobot\FreelanceBundle\Entity\Contact $contact)
+    public function addContact(Contact $contact)
     {
         $this->contacts[] = $contact;
 
@@ -160,7 +113,7 @@ class Client
      *
      * @param \WebRobot\FreelanceBundle\Entity\Contact $contact
      */
-    public function removeContact(\WebRobot\FreelanceBundle\Entity\Contact $contact)
+    public function removeContact(Contact $contact)
     {
         $this->contacts->removeElement($contact);
     }
@@ -182,7 +135,7 @@ class Client
      *
      * @return Client
      */
-    public function addInvoice(\WebRobot\FreelanceBundle\Entity\Invoice $invoice)
+    public function addInvoice(Invoice $invoice)
     {
         $this->invoices[] = $invoice;
 
@@ -194,7 +147,7 @@ class Client
      *
      * @param \WebRobot\FreelanceBundle\Entity\Invoice $invoice
      */
-    public function removeInvoice(\WebRobot\FreelanceBundle\Entity\Invoice $invoice)
+    public function removeInvoice(Invoice $invoice)
     {
         $this->invoices->removeElement($invoice);
     }
@@ -216,7 +169,7 @@ class Client
      *
      * @return Client
      */
-    public function addProject(\WebRobot\FreelanceBundle\Entity\Project $project)
+    public function addProject(Project $project)
     {
         $this->projects[] = $project;
 
@@ -228,7 +181,7 @@ class Client
      *
      * @param \WebRobot\FreelanceBundle\Entity\Project $project
      */
-    public function removeProject(\WebRobot\FreelanceBundle\Entity\Project $project)
+    public function removeProject(Project $project)
     {
         $this->projects->removeElement($project);
     }

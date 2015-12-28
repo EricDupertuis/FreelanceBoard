@@ -2,6 +2,7 @@
 
 namespace WebRobot\FreelanceBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -58,7 +59,7 @@ class Project
      */
     public function __construct()
     {
-        $this->sessions = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->sessions = new ArrayCollection();
     }
 
     /**
@@ -166,7 +167,7 @@ class Project
      *
      * @return Project
      */
-    public function setClient(\WebRobot\FreelanceBundle\Entity\Client $client = null)
+    public function setClient(Client $client = null)
     {
         $this->client = $client;
 
@@ -190,7 +191,7 @@ class Project
      *
      * @return Project
      */
-    public function addSession(\WebRobot\FreelanceBundle\Entity\Session $session)
+    public function addSession(Session $session)
     {
         $this->sessions[] = $session;
 
@@ -202,7 +203,7 @@ class Project
      *
      * @param \WebRobot\FreelanceBundle\Entity\Session $session
      */
-    public function removeSession(\WebRobot\FreelanceBundle\Entity\Session $session)
+    public function removeSession(Session $session)
     {
         $this->sessions->removeElement($session);
     }

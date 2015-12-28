@@ -67,7 +67,7 @@ class User extends BaseUser
      *
      * @return User
      */
-    public function addClient(\WebRobot\FreelanceBundle\Entity\Client $client)
+    public function addClient(Client $client)
     {
         $this->clients[] = $client;
 
@@ -79,7 +79,7 @@ class User extends BaseUser
      *
      * @param \WebRobot\FreelanceBundle\Entity\Client $client
      */
-    public function removeClient(\WebRobot\FreelanceBundle\Entity\Client $client)
+    public function removeClient(Client $client)
     {
         $this->clients->removeElement($client);
     }
@@ -101,7 +101,7 @@ class User extends BaseUser
      *
      * @return User
      */
-    public function addProject(\WebRobot\FreelanceBundle\Entity\Project $project)
+    public function addProject(Project $project)
     {
         $this->projects[] = $project;
 
@@ -113,7 +113,7 @@ class User extends BaseUser
      *
      * @param \WebRobot\FreelanceBundle\Entity\Project $project
      */
-    public function removeProject(\WebRobot\FreelanceBundle\Entity\Project $project)
+    public function removeProject(Project $project)
     {
         $this->projects->removeElement($project);
     }
