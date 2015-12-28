@@ -87,4 +87,24 @@ class ClientController extends Controller
 
         return $client;
     }
+
+    public function deleteClientAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $client = $em->getRepository('WebRobotFreelanceBundle:Client')
+            ->findOneBy([
+                'id' => $request->get('id'),
+                'user' => $this->getUser()
+            ]);
+
+        if (!$client) {
+            throw $this->createNotFoundException('No client to delete there, Are you drunk ?');
+        }
+
+        $em->remove($client);
+        $em->flush();
+
+        return true;
+    }
 }
