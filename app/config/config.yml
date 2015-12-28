@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: @WebRobotApiBundle/Resources/config/services.yml }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -89,6 +90,8 @@ fos_user:
     user_class: WebRobot\FreelanceBundle\Entity\User
 
 fos_rest:
+    routing_loader:
+        default_format: json
     param_fetcher_listener: true
     body_listener: true
     format_listener: true
