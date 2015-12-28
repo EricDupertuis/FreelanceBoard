@@ -8,15 +8,17 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class ProjectController extends Controller
 {
-    public function getAllAction() {
+    public function getAllAction()
+    {
         $project = $this->getDoctrine()->getRepository('WebRobotFreelanceBundle:Project')->findAll();
-        if(!is_object($project)){
+        if (!is_object($project)) {
             return false;
         }
         return $project;
     }
 
-    public function getAction($id) {
+    public function getAction($id)
+    {
         $project = $this->getDoctrine()->getRepository('WebRobotFreelanceBundle:Project')
             ->findOneBy(['id' => $id]);
 
@@ -25,5 +27,10 @@ class ProjectController extends Controller
         }
 
         return $project;
+    }
+
+    public function createAction()
+    {
+        return false;
     }
 }
