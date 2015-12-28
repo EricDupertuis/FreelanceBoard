@@ -243,6 +243,22 @@ class Client
         return $this->projects;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
     public function __toString()
     {
         return strval($this->name);

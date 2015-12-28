@@ -49,8 +49,79 @@ class User extends BaseUser
 
     //protected $defaultCurrency;
 
+    /**
+     * User constructor.
+     */
     public function __construct()
     {
         parent::__construct();
+    }
+
+    /**
+     * Add client
+     *
+     * @param \WebRobot\FreelanceBundle\Entity\Client $client
+     *
+     * @return User
+     */
+    public function addClient(\WebRobot\FreelanceBundle\Entity\Client $client)
+    {
+        $this->clients[] = $client;
+
+        return $this;
+    }
+
+    /**
+     * Remove client
+     *
+     * @param \WebRobot\FreelanceBundle\Entity\Client $client
+     */
+    public function removeClient(\WebRobot\FreelanceBundle\Entity\Client $client)
+    {
+        $this->clients->removeElement($client);
+    }
+
+    /**
+     * Get clients
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getClients()
+    {
+        return $this->clients;
+    }
+
+    /**
+     * Add project
+     *
+     * @param \WebRobot\FreelanceBundle\Entity\Project $project
+     *
+     * @return User
+     */
+    public function addProject(\WebRobot\FreelanceBundle\Entity\Project $project)
+    {
+        $this->projects[] = $project;
+
+        return $this;
+    }
+
+    /**
+     * Remove project
+     *
+     * @param \WebRobot\FreelanceBundle\Entity\Project $project
+     */
+    public function removeProject(\WebRobot\FreelanceBundle\Entity\Project $project)
+    {
+        $this->projects->removeElement($project);
+    }
+
+    /**
+     * Get projects
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProjects()
+    {
+        return $this->projects;
     }
 }
