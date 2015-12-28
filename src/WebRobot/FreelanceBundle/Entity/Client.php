@@ -43,6 +43,12 @@ class Client
      * @ORM\OneToMany(targetEntity="Project", mappedBy="client")
      */
     protected $projects;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="clients")
+     */
+    protected $user;
+
     /**
      * Constructor
      */

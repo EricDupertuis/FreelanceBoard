@@ -33,6 +33,16 @@ class User extends BaseUser
      */
     protected $address;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Client", mappedBy="user")
+     */
+    protected $clients;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Project", mappedBy="user")
+     */
+    protected $projects;
+
     //protected $country;
 
     //protected $standardPricing;

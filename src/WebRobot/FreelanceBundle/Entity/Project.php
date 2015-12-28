@@ -47,6 +47,12 @@ class Project
      * @ORM\Column(type="boolean")
      */
     protected $closed;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="projects")
+     */
+    protected $user;
+
     /**
      * Constructor
      */
