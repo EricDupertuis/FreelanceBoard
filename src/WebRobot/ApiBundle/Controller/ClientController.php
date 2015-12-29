@@ -17,7 +17,7 @@ class ClientController extends Controller
             ->findBy(['user' => $this->getUser()]);
 
         if (!$clients) {
-            return $this->createNotFoundException('No clients found :(');
+            throw $this->createNotFoundException('No clients found :(');
         }
 
         return $clients;
