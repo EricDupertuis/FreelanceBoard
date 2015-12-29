@@ -22,4 +22,21 @@ class ProjectController extends Controller
 
         return $projects;
     }
+
+    public function getProjectAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $project = $em->getRepository('WebRobotFreelanceBundle:Project')
+            ->findOneBy([
+                'id' => $id,
+                'user' => $this->getUser()
+            ]);
+
+        if (!$project) {
+            throw $this->createNotFoundException('Project not found');
+        }
+
+        return $project;
+    }
 }
