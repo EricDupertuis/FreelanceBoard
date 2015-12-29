@@ -1,7 +1,6 @@
 projects:
     type:       rest
     resource:   "@WebRobotApiBundle/Controller/ProjectController.php"
-    prefix:     /project
 
 clients:
     type:       rest
