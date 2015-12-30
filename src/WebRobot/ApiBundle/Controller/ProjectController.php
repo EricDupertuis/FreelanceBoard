@@ -75,4 +75,19 @@ class ProjectController extends Controller
 
         return $response;
     }
+
+    public function postProjectAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $project = $em->getRepository('WebRobotFreelanceBundle:Project')
+            ->findOneBy([
+                'id' => $request->get('id'),
+                'user' => $this->getUser()
+            ]);
+
+        if (!$project) {
+
+        }
+    }
 }
