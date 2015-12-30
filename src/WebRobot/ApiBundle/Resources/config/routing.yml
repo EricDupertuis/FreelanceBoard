@@ -5,3 +5,7 @@ projects:
 clients:
     type:       rest
     resource:   "@WebRobotApiBundle/Controller/ClientController.php"
+
+sessions:
+    type:       rest
+    resource:   "@WebRobotApiBundle/Controller/SessionController.php"
