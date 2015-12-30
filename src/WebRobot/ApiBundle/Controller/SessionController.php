@@ -47,4 +47,14 @@ class SessionController extends Controller
 
         return $sessions;
     }
+
+    public function postSessionAction(Request $request)
+    {
+
+    }
+
+    public function putSessionAction(Request $request)
+    {
+
+    }
 }
