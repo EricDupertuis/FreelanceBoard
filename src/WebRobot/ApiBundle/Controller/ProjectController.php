@@ -76,6 +76,7 @@ class ProjectController extends Controller
         return $response;
     }
 
+
     public function postProjectAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
@@ -87,7 +88,16 @@ class ProjectController extends Controller
             ]);
 
         if (!$project) {
-
+            throw $this->createNotFoundException('No project found, weird...');
         }
+
+        $project->setName($request->get('name'))
+            ->setDescription($request->get('description'))
+            ->setClosed($request->get('closed'));
+
+        $em->persist($project);
+        $em->flush();
+
+        return $project;
     }
 }
