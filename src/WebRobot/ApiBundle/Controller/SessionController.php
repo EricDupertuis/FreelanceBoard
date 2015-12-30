@@ -1,15 +1,50 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: eric
- * Date: 30/12/15
- * Time: 22:15
- */
 
 namespace WebRobot\ApiBundle\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use WebRobot\FreelanceBundle\Entity\Project;
 
-class SessionController
+class SessionController extends Controller
 {
+    public function getSessionAction($id, $project_id)
+    {
+        $em = $this->getDoctrine()->getManager();
 
+        $project = $em->getRepository('WebRobotFreelanceBundle:Project')->findOneBy(['id' => $project_id]);
+
+        if (!$project) {
+            throw $this->createNotFoundException('Error retrieving the session');
+        }
+
+        $session = $em->getRepository('WebRobotFreelanceBundle:Session')
+            ->findOneBy(['id' => $id, 'project' => $project]);
+
+        if (!$session) {
+            throw $this->createNotFoundException('No session found for the given project');
+        }
+
+        return $session;
+    }
+
+    public function getSessionsAction($project_id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $project = $em->getRepository('WebRobotFreelanceBundle:Project')->findOneBy(['id' => $project_id]);
+
+        if (!$project) {
+            throw $this->createNotFoundException('Error while retrieving the sessions');
+        }
+
+        $sessions = $em->getRepository('WebRobotFreelanceBundle:Session')->findBy(['project' => $project]);
+
+        if (!$sessions) {
+            throw $this->createNotFoundException('No sessions found for the given project');
+        }
+
+        return $sessions;
+    }
 }
