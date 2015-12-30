@@ -39,4 +39,40 @@ class ProjectController extends Controller
 
         return $project;
     }
+
+    public function putProjectAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $check = $em->getRepository('WebRobotFreelanceBundle:Project')
+            ->findOneBy([
+                'name' => $request->get('name'),
+                'user' => $this->getUser()
+            ]);
+
+        if (!$check) {
+            $project = new Project();
+
+            $client = $em->getRepository('WebRobotFreelanceBundle:Client')
+                ->findOneBy(['id' => $request->get('client_id')]);
+
+            if (!$client) {
+                throw $this->createNotFoundException('Something went wrong while retrieving the client');
+            }
+
+            $project->setName($request->get('name'));
+            $project->setDescription($request->get('description'));
+            $project->setUser($this->getUser());
+            $project->setClient($client);
+
+            $em->persist($client);
+            $em->flush();
+
+            return $client;
+        }
+
+        $response = new Response('The project already exists', Response::HTTP_ACCEPTED);
+
+        return $response;
+    }
 }
