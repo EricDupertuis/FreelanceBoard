@@ -44,6 +44,11 @@ class User extends BaseUser
      */
     protected $projects;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Session", mappedBy="user")
+     */
+    protected $sessions;
+
     //protected $country;
 
     //protected $standardPricing;

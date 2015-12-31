@@ -45,6 +45,11 @@ class Session
     protected $project;
 
     /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="sessions")
+     */
+    protected $user;
+
+    /**
      *
      */
     public function __construct()
