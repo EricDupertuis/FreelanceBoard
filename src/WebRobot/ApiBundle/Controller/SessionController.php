@@ -9,18 +9,19 @@ use WebRobot\FreelanceBundle\Entity\Project;
 
 class SessionController extends Controller
 {
-    public function getSessionAction($id, $project_id)
+    public function getSessionAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $project = $em->getRepository('WebRobotFreelanceBundle:Project')->findOneBy(['id' => $project_id]);
+        $project = $em->getRepository('WebRobotFreelanceBundle:Project')
+            ->findOneBy(['id' => $request->get('project_id')]);
 
         if (!$project) {
             throw $this->createNotFoundException('Error retrieving the session');
         }
 
         $session = $em->getRepository('WebRobotFreelanceBundle:Session')
-            ->findOneBy(['id' => $id, 'project' => $project]);
+            ->findOneBy(['id' => $request->get('session_id'), 'project' => $project]);
 
         if (!$session) {
             throw $this->createNotFoundException('No session found for the given project');
@@ -55,6 +56,6 @@ class SessionController extends Controller
 
     public function putSessionAction(Request $request)
     {
-
+        $em = $this->getDoctrine()->getManager();
     }
 }
