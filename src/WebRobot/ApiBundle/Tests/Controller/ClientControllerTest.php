@@ -1,10 +1,10 @@
 <?php
 
-namespace WebRobot\FreelanceBundle\Tests\Controller;
+namespace WebRobot\ApiBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class DefaultControllerTest extends WebTestCase
+class ClientControllerTest extends WebTestCase
 {
     public function testIndex()
     {
