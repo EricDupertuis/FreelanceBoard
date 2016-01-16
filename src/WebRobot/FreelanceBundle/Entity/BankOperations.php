@@ -6,17 +6,17 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Class BankAccount bank account entry in database
+ * Class BankOperation bank operations
  *
  * @package WebRobot\FreelanceBundle\Entity
  *
  * @author Eric Dupertuis <dupertuis.eric@gmail.com>
  *
  * @ORM\Entity
- * @ORM\Table(name="bank_accounts")
- * @ORM\Entity(repositoryClass="WebRobot\FreelanceBundle\Repository\BankAccountRepository")
+ * @ORM\Table(name="bank_operations")
+ * @ORM\Entity(repositoryClass="WebRobot\FreelanceBundle\Repository\BankOperationRepository")
  */
-class BankAccount
+class BankOperation
 {
     /**
      * @ORM\Id
@@ -24,14 +24,4 @@ class BankAccount
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-
-    protected $name;
-
-    protected $description;
-
-    protected $operations;
-
-    protected $value;
-
-    protected $user;
 }
