@@ -19,17 +19,17 @@ class User extends BaseUser
      */
     protected $id;
 
-    /*
+    /**
      * @ORM\Column(type="string")
      */
     protected $firstName;
 
-    /*
+    /**
      * @ORM\Column(type="string")
      */
     protected $lastName;
 
-    /*
+    /**
      * @ORM\Column(type="text")
      */
     protected $address;

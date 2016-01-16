@@ -2,17 +2,28 @@
 <html lang="en">
 <head>
     <title>FreelanceBoard</title>
+        {% stylesheets
+        "@WebRobotFreelanceBundle/Resources/public/vendor/bootstrap/dist/css/bootstrap.min.css"
+        %}
+        <link rel="stylesheet" href="{{ asset_url }}">
+    {% endstylesheets %}
 </head>
 <body>
+{% block nav %}
+{% endblock %}
 <div class="container">
     {% block body %}
-        {% block mainContent %}
-        {% endblock %}
+
     {% endblock %}
 </div>
 
 {% block footer %}
-
+    {% javascripts
+    "@WebRobotFreelanceBundle/Resources/public/vendor/jquery/dist/jquery.min.js"
+    "@WebRobotFreelanceBundle/Resources/public/vendor/bootstrap/dist/js/bootstrap.min.js"
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
 {% endblock %}
 </body>
 </html>
