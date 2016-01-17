@@ -49,11 +49,10 @@ class User extends BaseUser
      */
     protected $sessions;
 
-    //protected $country;
-
-    //protected $standardPricing;
-
-    //protected $defaultCurrency;
+    /**
+     * @ORM\OneToMany(targetEntity="BankAccount", mappedBy="user")
+     */
+    protected $bankAccounts;
 
     /**
      * User constructor.
@@ -63,6 +62,8 @@ class User extends BaseUser
         parent::__construct();
         $this->clients = new ArrayCollection();
         $this->projects = new ArrayCollection();
+        $this->sessions = new ArrayCollection();
+        $this->bankAccounts = new ArrayCollection();
     }
 
     /**
@@ -131,5 +132,145 @@ class User extends BaseUser
     public function getProjects()
     {
         return $this->projects;
+    }
+
+    /**
+     * Set firstName
+     *
+     * @param string $firstName
+     *
+     * @return User
+     */
+    public function setFirstName($firstName)
+    {
+        $this->firstName = $firstName;
+
+        return $this;
+    }
+
+    /**
+     * Get firstName
+     *
+     * @return string
+     */
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * Set lastName
+     *
+     * @param string $lastName
+     *
+     * @return User
+     */
+    public function setLastName($lastName)
+    {
+        $this->lastName = $lastName;
+
+        return $this;
+    }
+
+    /**
+     * Get lastName
+     *
+     * @return string
+     */
+    public function getLastName()
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * Set address
+     *
+     * @param string $address
+     *
+     * @return User
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * Get address
+     *
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * Add session
+     *
+     * @param \WebRobot\FreelanceBundle\Entity\Session $session
+     *
+     * @return User
+     */
+    public function addSession(Session $session)
+    {
+        $this->sessions[] = $session;
+
+        return $this;
+    }
+
+    /**
+     * Remove session
+     *
+     * @param \WebRobot\FreelanceBundle\Entity\Session $session
+     */
+    public function removeSession(Session $session)
+    {
+        $this->sessions->removeElement($session);
+    }
+
+    /**
+     * Get sessions
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSessions()
+    {
+        return $this->sessions;
+    }
+
+    /**
+     * Add bankAccount
+     *
+     * @param \WebRobot\FreelanceBundle\Entity\BankAccount $bankAccount
+     *
+     * @return User
+     */
+    public function addBankAccount(BankAccount $bankAccount)
+    {
+        $this->bankAccounts[] = $bankAccount;
+
+        return $this;
+    }
+
+    /**
+     * Remove bankAccount
+     *
+     * @param \WebRobot\FreelanceBundle\Entity\BankAccount $bankAccount
+     */
+    public function removeBankAccount(BankAccount $bankAccount)
+    {
+        $this->bankAccounts->removeElement($bankAccount);
+    }
+
+    /**
+     * Get bankAccounts
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBankAccounts()
+    {
+        return $this->bankAccounts;
     }
 }

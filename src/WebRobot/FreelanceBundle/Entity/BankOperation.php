@@ -24,4 +24,19 @@ class BankOperation
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    protected $value;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="BankAccount", inversedBy="operations")
+     */
+    protected $account;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $operationDate;
 }
