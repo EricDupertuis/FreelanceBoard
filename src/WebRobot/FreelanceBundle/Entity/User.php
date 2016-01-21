@@ -20,19 +20,14 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     protected $firstName;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     protected $lastName;
-
-    /**
-     * @ORM\Column(type="text")
-     */
-    protected $address;
 
     /**
      * @ORM\OneToMany(targetEntity="Client", mappedBy="user")
