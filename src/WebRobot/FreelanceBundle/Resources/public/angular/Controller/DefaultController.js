@@ -1,3 +1,5 @@
-/**
- * Created by eric on 1/22/16.
- */
+var app = angular.module('app', []);
+
+app.controller('DefaultController', function($scope, $http){
+
+});

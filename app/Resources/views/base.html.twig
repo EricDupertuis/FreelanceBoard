@@ -1,12 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
 <head>
     <title>FreelanceBoard</title>
-        {% stylesheets
+    <meta charset="UTF-8">
+    {% stylesheets
         "@WebRobotFreelanceBundle/Resources/public/vendor/bootstrap/dist/css/bootstrap.min.css"
-        %}
+    %}
         <link rel="stylesheet" href="{{ asset_url }}">
     {% endstylesheets %}
+    {% javascripts
+        "@WebRobotFreelanceBundle/Resources/public/vendor/angular/angular.min.js"
+        "@WebRobotFreelanceBundle/Resources/public/angular/Controller/DefaultController.js"
+        "@WebRobotFreelanceBundle/Resources/public/angular/Controller/ClientController.js"
+    %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
 </head>
 <body>
 {% block nav %}

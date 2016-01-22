@@ -7,4 +7,18 @@
 {% endblock %}
 
 {% block body %}
+    {% verbatim %}
+        <div class="col-lg-6" ng-controller="ClientController">
+            <ul>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">My Clients</div>
+                    <div class="panel-body">
+                        <div ng-repeat="client in clients">
+                        <h2>{{ client.name }}</h2>
+                        </div>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    {% endverbatim %}
 {% endblock %}
