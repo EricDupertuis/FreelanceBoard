@@ -31,8 +31,6 @@ framework:
         handler_id:  ~
     fragments:       ~
     http_method_override: true
-    serializer:
-      enabled: true
 
 # Twig Configuration
 twig:
@@ -108,3 +106,10 @@ fos_rest:
         default_engine: twig
     routing_loader:
         default_format: json
+
+jms_serializer:
+    metadata:
+        directories:
+            FOSUB:
+                namespace_prefix: FOS\UserBundle
+                path: %kernel.root_dir%/serializer/FOSUB

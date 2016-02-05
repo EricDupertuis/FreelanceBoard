@@ -2,6 +2,7 @@
 
 namespace WebRobot\ApiBundle\Controller;
 
+use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -9,16 +10,20 @@ use WebRobot\FreelanceBundle\Entity\Client;
 
 class ClientController extends Controller
 {
+    /**
+     * @return array
+     */
     public function getClientsAction()
     {
         $em = $this->getDoctrine()->getManager();
 
         $clients = $em->getRepository('WebRobotFreelanceBundle:Client')
-            ->findBy(['user' => $this->getUser()]);
+            ->getAllClients($this->getUser());
 
         if (!$clients) {
             throw $this->createNotFoundException('No clients found :(');
         }
+
 
         return $clients;
     }

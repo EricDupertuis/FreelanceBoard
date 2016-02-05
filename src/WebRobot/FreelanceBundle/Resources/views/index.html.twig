@@ -15,6 +15,9 @@
                     <div class="panel-body">
                         <div ng-repeat="client in clients">
                         <h2>{{ client.name }}</h2>
+                            <p ng-repeat="project in client.projects">
+                                {{ project.name }}
+                            </p>
                         </div>
                     </div>
                 </div>

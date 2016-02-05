@@ -18,8 +18,8 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new FOS\RestBundle\FOSRestBundle(),
-            new \JMS\SerializerBundle\JMSSerializerBundle(),
-            new \Nelmio\ApiDocBundle\NelmioApiDocBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
+            new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             new WebRobot\FreelanceBundle\WebRobotFreelanceBundle(),
             new WebRobot\ApiBundle\WebRobotApiBundle(),
         );
