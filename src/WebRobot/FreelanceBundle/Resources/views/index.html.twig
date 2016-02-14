@@ -23,17 +23,15 @@
                 </div>
             </ul>
         </div>
-        <div class="col-lg-6" ng-controller="">
+        <div class="col-lg-6" ng-controller="SessionController">
             <ul>
                 <div class="panel panel-primary">
-                    <div class="panel-heading">My Clients</div>
+                    <div class="panel-heading">Sessions</div>
                     <div class="panel-body">
-                        <div ng-repeat="client in clients">
-                        <h2>{{ client.name }}</h2>
-                            <p ng-repeat="project in client.projects">
-                                {{ project.name }}
-                            </p>
-                        </div>
+                        <h2>Unpaid sessions</h2>
+                            <div ng-repeat="session in sessions">
+                                {{ session.time }}
+                            </div>
                     </div>
                 </div>
             </ul>

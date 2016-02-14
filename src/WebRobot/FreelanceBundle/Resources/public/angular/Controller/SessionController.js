@@ -1,7 +1,6 @@
 app.controller('SessionController', function($scope, $http){
-    $scope.test = '';
-    var clients = $http.get('./api/clients.json')
+    var sessions = $http.get('./api/session.json')
         .then(function(response){
-            $scope.clients = response.data;
+            $scope.sessions = response.data;
         });
 });

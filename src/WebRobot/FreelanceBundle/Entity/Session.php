@@ -3,6 +3,10 @@
 namespace WebRobot\FreelanceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
+use JMS\Serializer\Annotation\Groups;
+use JMS\Serializer\Annotation\VirtualProperty;
 
 /**
  * Class Session
@@ -14,6 +18,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="sessions")
  * @ORM\Entity(repositoryClass="WebRobot\FreelanceBundle\Repository\SessionRepository")
+ *
+ * @ExclusionPolicy("all")
  */
 class Session
 {
@@ -21,21 +27,29 @@ class Session
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
+     *
+     * @Expose
      */
     protected $id;
 
     /**
      * @ORM\Column(type="integer")
+     *
+     * @Expose
      */
     protected $time;
 
     /**
      * @ORM\Column(type="datetime")
+     *
+     * @Expose
      */
     protected $date;
 
     /**
      * @ORM\Column(type="boolean")
+     *
+     * @Expose
      */
     protected $paid;
 

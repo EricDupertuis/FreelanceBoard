@@ -9,36 +9,23 @@ use WebRobot\FreelanceBundle\Entity\Project;
 
 class SessionController extends Controller
 {
-    public function getSessionAction(Request $request)
+    public function getSessionAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $project = $em->getRepository('WebRobotFreelanceBundle:Project')
-            ->findOneBy(['id' => $request->get('project_id')]);
+        $sessions = $em->getRepository('WebRobotFreelanceBundle:Session')
+            ->findBy(['paid' => 0, 'user' => $this->getUser()]);
 
-        if (!$project) {
-            throw $this->createNotFoundException('Error retrieving the session');
+        if (!$sessions) {
+            throw $this->createNotFoundException('No unpaid sessions found');
         }
 
-        $session = $em->getRepository('WebRobotFreelanceBundle:Session')
-            ->findOneBy(['id' => $request->get('session_id'), 'project' => $project]);
-
-        if (!$session) {
-            throw $this->createNotFoundException('No session found for the given project');
-        }
-
-        return $session;
+        return $sessions;
     }
 
     public function getSessionsAction($project_id)
     {
         $em = $this->getDoctrine()->getManager();
-
-        $project = $em->getRepository('WebRobotFreelanceBundle:Project')->findOneBy(['id' => $project_id]);
-
-        if (!$project) {
-            throw $this->createNotFoundException('Error while retrieving the sessions');
-        }
 
         $sessions = $em->getRepository('WebRobotFreelanceBundle:Session')->findBy(['project' => $project]);
 
