@@ -8,6 +8,7 @@
 
 {% block body %}
     {% verbatim %}
+    <div ng-view>
         <div class="col-lg-6" ng-controller="ClientController">
             <ul>
                 <div class="panel panel-primary">
@@ -29,12 +30,11 @@
                     <div class="panel-heading">Sessions</div>
                     <div class="panel-body">
                         <h2>Unpaid sessions</h2>
-                            <div ng-repeat="session in sessions">
-                                {{ session.time }}
-                            </div>
+                            {{ sessions }}
                     </div>
                 </div>
             </ul>
         </div>
+    </div>
     {% endverbatim %}
 {% endblock %}

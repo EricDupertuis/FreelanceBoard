@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use WebRobot\FreelanceBundle\Entity\Project;
+use WebRobot\FreelanceBundle\Entity\Session;
 
 class SessionController extends Controller
 {
@@ -20,7 +21,14 @@ class SessionController extends Controller
             throw $this->createNotFoundException('No unpaid sessions found');
         }
 
-        return $sessions;
+        $totalSessions = 0;
+
+        /**@var $session Session */
+        foreach ($sessions as $session) {
+            $totalSessions += $session->getTime();
+        }
+
+        return $totalSessions;
     }
 
     public function getSessionsAction($project_id)
