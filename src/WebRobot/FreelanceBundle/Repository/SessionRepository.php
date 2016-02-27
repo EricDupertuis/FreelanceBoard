@@ -23,4 +23,18 @@ class SessionRepository extends EntityRepository
 
         return $unpaidSessions;
     }
+
+    public function getUnpaidTotal($user)
+    {
+        $sessions = $this->getEntityManager()
+            ->getRepository('WebRobotFreelanceBundle:Session')
+            ->findBy(['user' => $user, 'paid' => 0]);
+
+        $total = 0;
+        foreach ($sessions as $session) {
+            $total += $session->getTime();
+        }
+
+        return $total;
+    }
 }
