@@ -1,3 +1,7 @@
+web_robot_freelance_clients:
+    resource: "@WebRobotFreelanceBundle/Resources/config/routing/client.yml"
+    prefix:   /clients
+
 homepage:
     path:     /
     defaults: { _controller: WebRobotFreelanceBundle:Default:index }
