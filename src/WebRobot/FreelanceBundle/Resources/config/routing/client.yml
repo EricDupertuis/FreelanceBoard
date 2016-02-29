@@ -1,0 +1,30 @@
+clients:
+    path:     /
+    defaults: { _controller: "WebRobotFreelanceBundle:Client:index" }
+
+clients_show:
+    path:     /{id}/show
+    defaults: { _controller: "WebRobotFreelanceBundle:Client:show" }
+
+clients_new:
+    path:     /new
+    defaults: { _controller: "WebRobotFreelanceBundle:Client:new" }
+
+clients_create:
+    path:     /create
+    defaults: { _controller: "WebRobotFreelanceBundle:Client:create" }
+    methods:  POST
+
+clients_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "WebRobotFreelanceBundle:Client:edit" }
+
+clients_update:
+    path:     /{id}/update
+    defaults: { _controller: "WebRobotFreelanceBundle:Client:update" }
+    methods:  [POST, PUT]
+
+clients_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "WebRobotFreelanceBundle:Client:delete" }
+    methods:  [POST, DELETE]
