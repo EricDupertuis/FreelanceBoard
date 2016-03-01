@@ -1,17 +1,31 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <div class="col-lg-6">
+    <div class="col-lg-12">
         <h1>Client list</h1>
         <a href="{{ path('clients_new') }}">
             <button class="btn btn-primary" type="button">Create a new entry</button>
         </a>
+    </div>
+    <div class="col-lg-6">
         <ul class="nav nav-pills nav-stacked">
             {% for entity in entities %}
                 <li>
-                    <a href="#">{{ entity.name }}</a>
+                    <a data-toggle="pill" href="#client-{{ entity.id }}" aria-controls="client-{{ entity.id }}" role="tab">{{ entity.name }}</a>
                 </li>
             {% endfor %}
         </ul>
+    </div>
+    <div class="col-lg-6">
+        <div class="tab-content">
+            {% for entity in entities %}
+                <div role="tabpanel" class="tab-pane" id="client-{{ entity.id }}">
+                    {{ entity.id }}
+                    {% for project in entity.projects %}
+                        {{ project.name }}
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}

@@ -26,10 +26,10 @@ gulp.task('js', function () {
     gulp.src('./src/WebRobot/FreelanceBundle/Resources/assets/js/**/*.js')
         .pipe(plumber())
         .pipe(filesize())
-        .pipe(jslint({
+        /*.pipe(jslint({
             node: true,
             reporter: 'default'
-        }))
+        }))*/
         .pipe(gulp.dest('./src/WebRobot/FreelanceBundle/Resources/public/js'))
 
 });
