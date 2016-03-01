@@ -23,7 +23,9 @@ class ClientController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('WebRobotFreelanceBundle:Client')->findAll();
+        $entities = $em->getRepository('WebRobotFreelanceBundle:Client')->findBy([
+            'user' => $this->getUser()
+        ]);
 
         return $this->render('WebRobotFreelanceBundle:Client:index.html.twig', array(
             'entities' => $entities,
@@ -36,6 +38,7 @@ class ClientController extends Controller
     public function createAction(Request $request)
     {
         $entity = new Client();
+        $entity->setUser($this->getUser());
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -95,7 +98,8 @@ class ClientController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('WebRobotFreelanceBundle:Client')->find($id);
+        $entity = $em->getRepository('WebRobotFreelanceBundle:Client')
+            ->findOneBy(['id' => $id, 'user' => $this->getUser()]);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Client entity.');
@@ -117,7 +121,8 @@ class ClientController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('WebRobotFreelanceBundle:Client')->find($id);
+        $entity = $em->getRepository('WebRobotFreelanceBundle:Client')
+            ->findOneBy(['id' => $id, 'user' => $this->getUser()]);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Client entity.');
