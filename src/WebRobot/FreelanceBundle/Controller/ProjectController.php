@@ -25,9 +25,9 @@ class ProjectController extends Controller
 
         $entities = $em->getRepository('WebRobotFreelanceBundle:Project')->findAll();
 
-        return $this->render('WebRobotFreelanceBundle:Project:index.html.twig', array(
+        return $this->render('WebRobotFreelanceBundle:Project:index.html.twig', [
             'entities' => $entities,
-        ));
+        ]);
     }
     /**
      * Creates a new Project entity.
@@ -44,13 +44,13 @@ class ProjectController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('projects_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('projects_show', ['id' => $entity->getId()]));
         }
 
-        return $this->render('WebRobotFreelanceBundle:Project:new.html.twig', array(
+        return $this->render('WebRobotFreelanceBundle:Project:new.html.twig', [
             'entity' => $entity,
             'form'   => $form->createView(),
-        ));
+        ]);
     }
 
     /**
@@ -62,12 +62,12 @@ class ProjectController extends Controller
      */
     private function createCreateForm(Project $entity)
     {
-        $form = $this->createForm(new ProjectType(), $entity, array(
+        $form = $this->createForm(new ProjectType(), $entity, [
             'action' => $this->generateUrl('projects_create'),
             'method' => 'POST',
-        ));
+        ]);
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        $form->add('submit', 'submit', ['label' => 'Create']);
 
         return $form;
     }
@@ -81,10 +81,10 @@ class ProjectController extends Controller
         $entity = new Project();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('WebRobotFreelanceBundle:Project:new.html.twig', array(
+        return $this->render('WebRobotFreelanceBundle:Project:new.html.twig', [
             'entity' => $entity,
             'form'   => $form->createView(),
-        ));
+        ]);
     }
 
     /**
@@ -103,10 +103,10 @@ class ProjectController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('WebRobotFreelanceBundle:Project:show.html.twig', array(
+        return $this->render('WebRobotFreelanceBundle:Project:show.html.twig', [
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
-        ));
+        ]);
     }
 
     /**
@@ -126,11 +126,11 @@ class ProjectController extends Controller
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('WebRobotFreelanceBundle:Project:edit.html.twig', array(
+        return $this->render('WebRobotFreelanceBundle:Project:edit.html.twig', [
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        ));
+        ]);
     }
 
     /**
@@ -142,12 +142,12 @@ class ProjectController extends Controller
     */
     private function createEditForm(Project $entity)
     {
-        $form = $this->createForm(new ProjectType(), $entity, array(
-            'action' => $this->generateUrl('projects_update', array('id' => $entity->getId())),
+        $form = $this->createForm(new ProjectType(), $entity, [
+            'action' => $this->generateUrl('projects_update', ['id' => $entity->getId()]),
             'method' => 'PUT',
-        ));
+        ]);
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('submit', 'submit', ['label' => 'Update']);
 
         return $form;
     }
@@ -172,14 +172,14 @@ class ProjectController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('projects_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('projects_edit', ['id' => $id]));
         }
 
-        return $this->render('WebRobotFreelanceBundle:Project:edit.html.twig', array(
+        return $this->render('WebRobotFreelanceBundle:Project:edit.html.twig', [
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        ));
+        ]);
     }
     /**
      * Deletes a Project entity.
@@ -215,9 +215,9 @@ class ProjectController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('projects_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('projects_delete', ['id' => $id]))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
+            ->add('submit', 'submit', ['label' => 'Delete'])
             ->getForm()
         ;
     }
