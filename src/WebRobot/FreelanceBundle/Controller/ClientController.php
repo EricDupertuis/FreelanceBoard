@@ -47,7 +47,7 @@ class ClientController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('clients_show', ['id' => $entity->getId()]));
+            return $this->redirect($this->generateUrl('clients'));
         }
 
         return $this->render('WebRobotFreelanceBundle:Client:new.html.twig', [
@@ -87,29 +87,6 @@ class ClientController extends Controller
         return $this->render('WebRobotFreelanceBundle:Client:new.html.twig', [
             'entity' => $entity,
             'form'   => $form->createView(),
-        ]);
-    }
-
-    /**
-     * Finds and displays a Client entity.
-     *
-     */
-    public function showAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('WebRobotFreelanceBundle:Client')
-            ->findOneBy(['id' => $id, 'user' => $this->getUser()]);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Client entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($id);
-
-        return $this->render('WebRobotFreelanceBundle:Client:show.html.twig', [
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
         ]);
     }
 
