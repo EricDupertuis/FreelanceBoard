@@ -13,10 +13,10 @@ gulp.task('sass', function () {
         .pipe(plumber())
         .pipe(filesize())
         .pipe(sass().on('error', sass.logError))
-        .pipe(autoprefixer({
+        /*.pipe(autoprefixer({
             browsers: ['last 2 versions'],
             cascade: false
-        }))
+        }))*/
         .pipe(minifyCss({compatibility: 'ie8'}))
         .pipe(gulp.dest('./src/WebRobot/FreelanceBundle/Resources/public/css'))
         .pipe(filesize());
