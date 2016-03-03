@@ -18,12 +18,23 @@
     </div>
     <div class="col-lg-6">
         <div class="tab-content">
-            {% for entity in entities %}
-                <div role="tabpanel" class="tab-pane" id="client-{{ entity.id }}">
-                    {{ entity.id }}
-                    {% for project in entity.projects %}
-                        {{ project.name }}
-                    {% endfor %}
+            {% for client in entities %}
+                <div role="tabpanel" class="tab-pane" id="client-{{ client.id }}">
+                    <h1>{{ client.name }}</h1>
+                    {% if client.projects is not empty %}
+                        {% for project in client.projects %}
+                            <div class="col-lg-6">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">{{ project.name }}</div>
+                                    <div class="panel-body">
+                                        {{ project.description }}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <h3><i>No Projects yet for this client</i></h3>
+                    {% endif %}
                 </div>
             {% endfor %}
         </div>
