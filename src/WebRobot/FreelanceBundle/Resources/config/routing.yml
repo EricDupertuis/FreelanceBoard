@@ -1,3 +1,7 @@
+web_robot_freelance_contacts:
+    resource: "@WebRobotFreelanceBundle/Resources/config/routing/contact.yml"
+    prefix:   /contacts
+
 web_robot_freelance_projects:
     resource: "@WebRobotFreelanceBundle/Resources/config/routing/project.yml"
     prefix:   /projects

@@ -1,0 +1,30 @@
+contacts:
+    path:     /
+    defaults: { _controller: "WebRobotFreelanceBundle:Contact:index" }
+
+contacts_show:
+    path:     /{id}/show
+    defaults: { _controller: "WebRobotFreelanceBundle:Contact:show" }
+
+contacts_new:
+    path:     /new
+    defaults: { _controller: "WebRobotFreelanceBundle:Contact:new" }
+
+contacts_create:
+    path:     /create
+    defaults: { _controller: "WebRobotFreelanceBundle:Contact:create" }
+    methods:  POST
+
+contacts_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "WebRobotFreelanceBundle:Contact:edit" }
+
+contacts_update:
+    path:     /{id}/update
+    defaults: { _controller: "WebRobotFreelanceBundle:Contact:update" }
+    methods:  [POST, PUT]
+
+contacts_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "WebRobotFreelanceBundle:Contact:delete" }
+    methods:  [POST, DELETE]
