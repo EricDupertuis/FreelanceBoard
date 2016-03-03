@@ -11,7 +11,7 @@
         <ul class="nav nav-pills nav-stacked">
             {% for entity in entities %}
                 <li>
-                    <a data-toggle="pill" href="#client-{{ entity.id }}" aria-controls="client-{{ entity.id }}" role="tab">{{ entity.name }}</a>
+                    <a id="#clientlink-{{ entity.id }}" data-toggle="pill" href="#client-{{ entity.id }}" aria-controls="client-{{ entity.id }}" role="tab">{{ entity.name }}</a>
                 </li>
             {% endfor %}
         </ul>
