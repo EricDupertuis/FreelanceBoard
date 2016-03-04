@@ -9,11 +9,24 @@
 {% block body %}
     <div class="col-lg-6">
         <div class="panel panel-default">
+            <div class="panel-heading">Clients</div>
+            <div class="panel-body">
+                {% if clients %}
+                    {% for client in clients %}
+                        <h3>{{ client.name }}</h3>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="panel panel-default">
             <div class="panel-heading">Projects</div>
             <div class="panel-body">
-                {% if projects  %}
+                {% if projects %}
                     {% for project in projects %}
-                        {{ project.name }}
+                        <h3>{{ project.name }}</h3>
                     {% endfor %}
                 {% else %}
                     No projects yet :(
