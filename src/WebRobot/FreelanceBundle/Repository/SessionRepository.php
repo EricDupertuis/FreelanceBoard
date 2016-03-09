@@ -3,6 +3,7 @@
 namespace WebRobot\FreelanceBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use WebRobot\FreelanceBundle\Entity\User;
 
 class SessionRepository extends EntityRepository
 {
@@ -24,16 +25,16 @@ class SessionRepository extends EntityRepository
         return $unpaidSessions;
     }
 
+    /**
+     * @param $user User
+     * @return mixed
+     */
     public function getUnpaidTotal($user)
     {
-        $sessions = $this->getEntityManager()
-            ->getRepository('WebRobotFreelanceBundle:Session')
-            ->findBy(['user' => $user, 'paid' => 0]);
-
-        $total = 0;
-        foreach ($sessions as $session) {
-            $total += $session->getTime();
-        }
+        $dql = 'SELECT SUM(s.time) AS total FROM WebRobot\FreelanceBundle\Entity\Session s WHERE s.user='.$user->getId();
+        $total = $this->getEntityManager()
+            ->createQuery($dql)
+            ->getSingleScalarResult();
 
         return $total;
     }
