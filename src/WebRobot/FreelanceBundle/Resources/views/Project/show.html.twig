@@ -3,7 +3,15 @@
 {% block body -%}
     <h1>Project</h1>
 
-    <table class="record_properties">
+    <a href="{{ path('projects') }}" class="btn btn-default">
+        Back to the list
+    </a>
+    <a href="{{ path('projects_edit', { 'id': entity.id }) }}" class="btn btn-primary">
+        Edit
+    </a>
+    {{ form(delete_form) }}
+
+    <table class="record_properties table table-striped">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -19,22 +27,14 @@
             </tr>
             <tr>
                 <th>Closed</th>
-                <td>{{ entity.closed }}</td>
+                <td>
+                    {% if entity.closed %}
+                        Yes
+                    {% else %}
+                        No
+                    {% endif %}
+                </td>
             </tr>
         </tbody>
     </table>
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('projects') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('projects_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
 {% endblock %}
