@@ -3,14 +3,15 @@
 {% block body -%}
     <h1>Project list</h1>
 
-    <table class="records_list">
+    <table class="records_list table table-striped">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Name</th>
                 <th>Description</th>
                 <th>Closed</th>
-                <th>Actions</th>
+                <th>Show</th>
+                <th>Edit</th>
             </tr>
         </thead>
         <tbody>
@@ -21,14 +22,10 @@
                 <td>{{ entity.description }}</td>
                 <td>{{ entity.closed }}</td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('projects_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('projects_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+                    <a href="{{ path('projects_show', { 'id': entity.id }) }}">show</a>
+                </td>
+                <td>
+                    <a href="{{ path('projects_edit', { 'id': entity.id }) }}">edit</a>
                 </td>
             </tr>
         {% endfor %}
