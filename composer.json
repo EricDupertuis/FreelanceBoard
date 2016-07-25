@@ -21,7 +21,8 @@
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "friendsofsymfony/rest-bundle": "^1.7",
         "jms/serializer-bundle": "@dev",
-        "nelmio/api-doc-bundle": "@dev"
+        "nelmio/api-doc-bundle": "@dev",
+        "genemu/form-bundle": "^3.0@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
