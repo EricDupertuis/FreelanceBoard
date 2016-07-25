@@ -5,23 +5,6 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 
 class AppKernel extends Kernel
 {
-    /*public function getCacheDir()
-    {
-        if (in_array($this->environment, array('dev', 'test'))) {
-            return '/dev/shm/freelanceboard/cache/' .  $this->environment;
-        }
-
-        return parent::getCacheDir();
-    }
-
-    public function getLogDir()
-    {
-        if (in_array($this->environment, array('dev', 'test'))) {
-            return '/dev/shm/freelanceboard/logs';
-        }
-
-        return parent::getLogDir();
-    }*/
 
     public function registerBundles()
     {
@@ -38,6 +21,7 @@ class AppKernel extends Kernel
             new FOS\RestBundle\FOSRestBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
+            new Genemu\Bundle\FormBundle\GenemuFormBundle(),
             new WebRobot\FreelanceBundle\WebRobotFreelanceBundle(),
             new WebRobot\ApiBundle\WebRobotApiBundle(),
         );
