@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     {% stylesheets
         "@WebRobotFreelanceBundle/Resources/public/vendor/bootstrap/dist/css/bootstrap.min.css"
+        "@WebRobotFreelanceBundle/Resources/public/vendor/select2/dist/css/select2.min.css"
     %}
         <link rel="stylesheet" href="{{ asset_url }}">
+        {% if form is defined %}{{ form_stylesheet(form) }}{% endif %}
     {% endstylesheets %}
 </head>
 <body>
@@ -23,10 +25,12 @@
 {% block footer %}
     {% javascripts
     "@WebRobotFreelanceBundle/Resources/public/vendor/jquery/dist/jquery.min.js"
+    "@WebRobotFreelanceBundle/Resources/public/vendor/select2/dist/js/select2.full.min.js"
     "@WebRobotFreelanceBundle/Resources/public/vendor/bootstrap/dist/js/bootstrap.min.js"
     "@WebRobotFreelanceBundle/Resources/public/js/main.js"
     %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% if form is defined %}{{ form_javascript(form) }}{% endif %}
     {% endjavascripts %}
 {% endblock %}
 </body>
